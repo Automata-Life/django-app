@@ -1,0 +1,13 @@
+language: python
+python:
+  - "2.7"
+# command to install dependencies
+install: "pip install -r requirements.txt"
+
+before_script:
+    - rm composeexample/settings.py
+    - mv composeexample/travis.settings.py composeexample/settings.py
+# command to run tests
+script:
+    - ./manage.py test
+    - ./manage.py harvest
